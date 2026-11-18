@@ -1,0 +1,9 @@
+[  0.000] mode=v4 (AF_INET socket) -> 192.0.2.1:4242
+[  0.001] registered EVFILT_WRITE|EV_CLEAR; initial edge=1 space=9216
+[  0.007] sendto #5 -> EAGAIN; waiting for EVFILT_WRITE
+[  1.009] no edge after 1.0s; poll writable=0 SO_NWRITE=0
+[  2.011] no edge after 2.0s; poll writable=0 SO_NWRITE=0
+[  2.136] EVFILT_WRITE edge after 2.129s, space=9216
+
+*** RECOVERED: EVFILT_WRITE fired 2.1s after EAGAIN.
+exit: 0

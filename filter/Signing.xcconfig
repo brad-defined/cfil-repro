@@ -1,0 +1,9 @@
+// Your Apple Developer team ID goes in Local.xcconfig (created by `make TEAM=...`, or by hand):
+//
+//   DEVELOPMENT_TEAM = ABCDE12345
+//
+// Bundle IDs default to dev.<TEAM>.cfilrepro[.filter] so every builder gets unique App IDs.
+// Override BUNDLE_PREFIX in Local.xcconfig if you want something else.
+DEVELOPMENT_TEAM =
+BUNDLE_PREFIX = dev.$(DEVELOPMENT_TEAM)
+#include? "Local.xcconfig"

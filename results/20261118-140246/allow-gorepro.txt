@@ -1,0 +1,4 @@
+14:03:16.947 go go1.27.4; local [::]:62728 -> held 192.0.2.1:4242, probe listener 127.0.0.1:55358
+14:03:19.080 write #5 took 2.082s err=<nil>
+14:03:47.027 no hang after 30s (2214 writes). Check the filter verdict and that it matched this flow.
+exit: 0

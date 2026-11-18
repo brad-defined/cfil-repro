@@ -1,0 +1,36 @@
+[  0.000] mode=dual (AF_INET6 dual-stack socket) -> 192.0.2.1:4242, probes on
+[  0.002] registered EVFILT_WRITE|EV_CLEAR; initial edge=1 space=9216
+[  0.007] sendto #5 -> EAGAIN; waiting for EVFILT_WRITE
+[  1.008] no edge after 1.0s; poll writable=0 SO_NWRITE=0
+[  2.009] no edge after 2.0s; poll writable=0 SO_NWRITE=0
+[  3.012] no edge after 3.0s; poll writable=0 SO_NWRITE=0
+[  4.014] no edge after 4.0s; poll writable=0 SO_NWRITE=0
+[  5.017] no edge after 5.0s; poll writable=0 SO_NWRITE=0
+[  5.018]   probe sendto 127.0.0.1:9 (not filtered) -> Resource temporarily unavailable
+[  6.019] no edge after 6.0s; poll writable=0 SO_NWRITE=0
+[  7.022] no edge after 7.0s; poll writable=0 SO_NWRITE=0
+[  8.024] no edge after 8.0s; poll writable=0 SO_NWRITE=0
+[  9.027] no edge after 9.0s; poll writable=0 SO_NWRITE=0
+[ 10.030] no edge after 10.0s; poll writable=0 SO_NWRITE=0
+[ 10.030]   probe sendto 127.0.0.1:9 (not filtered) -> Resource temporarily unavailable
+[ 11.032] no edge after 11.0s; poll writable=0 SO_NWRITE=0
+[ 12.037] no edge after 12.0s; poll writable=0 SO_NWRITE=0
+[ 13.041] no edge after 13.0s; poll writable=0 SO_NWRITE=0
+[ 14.048] no edge after 14.0s; poll writable=0 SO_NWRITE=0
+[ 15.050] no edge after 15.0s; poll writable=0 SO_NWRITE=0
+[ 15.054]   probe sendto 127.0.0.1:9 (not filtered) -> Resource temporarily unavailable
+[ 16.055] no edge after 16.0s; poll writable=0 SO_NWRITE=0
+[ 17.062] no edge after 17.1s; poll writable=0 SO_NWRITE=0
+[ 18.065] no edge after 18.1s; poll writable=0 SO_NWRITE=0
+[ 19.067] no edge after 19.1s; poll writable=0 SO_NWRITE=0
+[ 20.070] no edge after 20.1s; poll writable=0 SO_NWRITE=0
+[ 20.071]   probe sendto 127.0.0.1:9 (not filtered) -> Resource temporarily unavailable
+[ 21.075] no edge after 21.1s; poll writable=0 SO_NWRITE=0
+[ 22.078] no edge after 22.1s; poll writable=1 SO_NWRITE=0
+[ 23.083] no edge after 23.1s; poll writable=1 SO_NWRITE=0
+[ 24.088] no edge after 24.1s; poll writable=1 SO_NWRITE=0
+[ 25.089] no edge after 25.1s; poll writable=1 SO_NWRITE=0
+[ 25.091] direct sendto 127.0.0.1:9 now -> ok
+
+*** REPRODUCED: socket writable for 3.0s after EAGAIN, but EVFILT_WRITE (EV_CLEAR) never fired.
+exit: 1

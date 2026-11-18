@@ -1,0 +1,46 @@
+14:24:01.592 go1.27.4; -net udp, local [::]:62334 -> held 192.0.2.1:4242, -probe-every 0s
+14:24:02.843 write #5 parked (EAGAIN); watching the socket
+14:24:02.845 write #5 parked 1s; poll writable=false SO_NWRITE=0
+14:24:08.092 write #5 parked 6s; poll writable=false SO_NWRITE=0
+14:24:13.093 write #5 parked 11s; poll writable=false SO_NWRITE=0
+14:24:18.093 write #5 parked 16s; poll writable=false SO_NWRITE=0
+14:24:23.344 write #5 parked 22s; poll writable=false SO_NWRITE=0
+14:24:28.593 write #5 parked 27s; poll writable=false SO_NWRITE=0
+14:24:33.595 write #5 parked 32s; poll writable=false SO_NWRITE=0
+14:24:38.843 write #5 parked 37s; poll writable=false SO_NWRITE=0
+14:24:43.844 write #5 parked 42s; poll writable=false SO_NWRITE=0
+
+*** HUNG: write #5 parked 45s and the socket never polled writable.
+The kernel never released the send-buffer space; any program would block (not a Go bug).
+
+goroutine profile: total 3
+1 @ 0x102f3562c 0x102f72254 0x102fd99b4 0x102fd9660 0x102fd6ec4 0x102fe8364 0x102fe81bc 0x102f3ec30 0x102f79a34
+#	0x102fd99b3	runtime/pprof.writeRuntimeProfile+0xb3	/usr/local/go/src/runtime/pprof/pprof.go:848
+#	0x102fd965f	runtime/pprof.writeGoroutine+0x4f	/usr/local/go/src/runtime/pprof/pprof.go:781
+#	0x102fd6ec3	runtime/pprof.(*Profile).WriteTo+0x143	/usr/local/go/src/runtime/pprof/pprof.go:405
+#	0x102fe8363	main.done+0xe3				/Users/bhiggins/Work/cfil-repro/client/gorepro/main.go:181
+#	0x102fe81bb	main.main+0xf1b				/Users/bhiggins/Work/cfil-repro/client/gorepro/main.go:170
+#	0x102f3ec2f	runtime.main+0x37f			/usr/local/go/src/runtime/proc.go:302
+
+1 @ 0x102f73408 0x102f38b00 0x102f726c0 0x102f99508 0x102f9a06c 0x102f9a05d 0x102fba458 0x102fc0b1c 0x102fc01cc 0x102fe8b18 0x102fe8af1 0x102f79a34
+#	0x102f726bf	internal/poll.runtime_pollWait+0x9f		/usr/local/go/src/runtime/netpoll.go:351
+#	0x102f99507	internal/poll.(*pollDesc).wait+0x27		/usr/local/go/src/internal/poll/fd_poll_runtime.go:84
+#	0x102f9a06b	internal/poll.(*pollDesc).waitRead+0x1bb	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+#	0x102f9a05c	internal/poll.(*FD).ReadFromInet4+0x1ac		/usr/local/go/src/internal/poll/fd_unix.go:246
+#	0x102fba457	net.(*netFD).readFromInet4+0x27			/usr/local/go/src/net/fd_posix.go:79
+#	0x102fc0b1b	net.(*UDPConn).readFrom+0x12b			/usr/local/go/src/net/udpsock_posix.go:52
+#	0x102fc01cb	net.(*UDPConn).readFromUDP+0x2b			/usr/local/go/src/net/udpsock.go:146
+#	0x102fe8b17	net.(*UDPConn).ReadFromUDP+0xa7			/usr/local/go/src/net/udpsock.go:138
+#	0x102fe8af0	main.main.func1+0x80				/Users/bhiggins/Work/cfil-repro/client/gorepro/main.go:57
+
+1 @ 0x102f73408 0x102f38b00 0x102f726c0 0x102f99508 0x102f9abb8 0x102f9aba9 0x102fba808 0x102fc0ce8 0x102fc0334 0x102fe88fc 0x102f79a34
+#	0x102f726bf	internal/poll.runtime_pollWait+0x9f		/usr/local/go/src/runtime/netpoll.go:351
+#	0x102f99507	internal/poll.(*pollDesc).wait+0x27		/usr/local/go/src/internal/poll/fd_poll_runtime.go:84
+#	0x102f9abb7	internal/poll.(*pollDesc).waitWrite+0x1c7	/usr/local/go/src/internal/poll/fd_poll_runtime.go:93
+#	0x102f9aba8	internal/poll.(*FD).WriteToInet6+0x1b8		/usr/local/go/src/internal/poll/fd_unix.go:483
+#	0x102fba807	net.(*netFD).writeToInet6+0x27			/usr/local/go/src/net/fd_posix.go:127
+#	0x102fc0ce7	net.(*UDPConn).writeToAddrPort+0xe7		/usr/local/go/src/net/udpsock_posix.go:159
+#	0x102fc0333	net.(*UDPConn).WriteToUDPAddrPort+0x43		/usr/local/go/src/net/udpsock.go:224
+#	0x102fe88fb	main.main.func2+0x16b				/Users/bhiggins/Work/cfil-repro/client/gorepro/main.go:75
+
+exit: 3

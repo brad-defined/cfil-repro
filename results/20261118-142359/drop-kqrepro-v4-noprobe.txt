@@ -1,0 +1,51 @@
+[  0.000] mode=v4 (AF_INET socket) -> 192.0.2.1:4242, probes off
+[  0.001] registered EVFILT_WRITE|EV_CLEAR; initial edge=1 space=9216
+[  0.007] sendto #5 -> EAGAIN; waiting for EVFILT_WRITE
+[  1.008] no edge after 1.0s; poll writable=0 SO_NWRITE=0
+[  2.010] no edge after 2.0s; poll writable=0 SO_NWRITE=0
+[  3.013] no edge after 3.0s; poll writable=0 SO_NWRITE=0
+[  4.015] no edge after 4.0s; poll writable=0 SO_NWRITE=0
+[  5.018] no edge after 5.0s; poll writable=0 SO_NWRITE=0
+[  6.020] no edge after 6.0s; poll writable=0 SO_NWRITE=0
+[  7.023] no edge after 7.0s; poll writable=0 SO_NWRITE=0
+[  8.026] no edge after 8.0s; poll writable=0 SO_NWRITE=0
+[  9.028] no edge after 9.0s; poll writable=0 SO_NWRITE=0
+[ 10.031] no edge after 10.0s; poll writable=0 SO_NWRITE=0
+[ 11.033] no edge after 11.0s; poll writable=0 SO_NWRITE=0
+[ 12.038] no edge after 12.0s; poll writable=0 SO_NWRITE=0
+[ 13.042] no edge after 13.0s; poll writable=0 SO_NWRITE=0
+[ 14.046] no edge after 14.0s; poll writable=0 SO_NWRITE=0
+[ 15.048] no edge after 15.0s; poll writable=0 SO_NWRITE=0
+[ 16.056] no edge after 16.0s; poll writable=0 SO_NWRITE=0
+[ 17.063] no edge after 17.1s; poll writable=0 SO_NWRITE=0
+[ 18.066] no edge after 18.1s; poll writable=0 SO_NWRITE=0
+[ 19.069] no edge after 19.1s; poll writable=0 SO_NWRITE=0
+[ 20.071] no edge after 20.1s; poll writable=0 SO_NWRITE=0
+[ 21.076] no edge after 21.1s; poll writable=0 SO_NWRITE=0
+[ 22.079] no edge after 22.1s; poll writable=0 SO_NWRITE=0
+[ 23.084] no edge after 23.1s; poll writable=0 SO_NWRITE=0
+[ 24.088] no edge after 24.1s; poll writable=0 SO_NWRITE=0
+[ 25.090] no edge after 25.1s; poll writable=0 SO_NWRITE=0
+[ 26.093] no edge after 26.1s; poll writable=0 SO_NWRITE=0
+[ 27.094] no edge after 27.1s; poll writable=0 SO_NWRITE=0
+[ 28.097] no edge after 28.1s; poll writable=0 SO_NWRITE=0
+[ 29.099] no edge after 29.1s; poll writable=0 SO_NWRITE=0
+[ 30.102] no edge after 30.1s; poll writable=0 SO_NWRITE=0
+[ 31.104] no edge after 31.1s; poll writable=0 SO_NWRITE=0
+[ 32.106] no edge after 32.1s; poll writable=0 SO_NWRITE=0
+[ 33.108] no edge after 33.1s; poll writable=0 SO_NWRITE=0
+[ 34.111] no edge after 34.1s; poll writable=0 SO_NWRITE=0
+[ 35.112] no edge after 35.1s; poll writable=0 SO_NWRITE=0
+[ 36.114] no edge after 36.1s; poll writable=0 SO_NWRITE=0
+[ 37.121] no edge after 37.1s; poll writable=0 SO_NWRITE=0
+[ 38.126] no edge after 38.1s; poll writable=0 SO_NWRITE=0
+[ 39.131] no edge after 39.1s; poll writable=0 SO_NWRITE=0
+[ 40.135] no edge after 40.1s; poll writable=0 SO_NWRITE=0
+[ 41.138] no edge after 41.1s; poll writable=0 SO_NWRITE=0
+[ 42.143] no edge after 42.1s; poll writable=0 SO_NWRITE=0
+[ 43.148] no edge after 43.1s; poll writable=0 SO_NWRITE=0
+[ 44.151] no edge after 44.1s; poll writable=0 SO_NWRITE=0
+[ 45.158] no edge after 45.2s; poll writable=0 SO_NWRITE=0
+
+*** HUNG: socket unwritable for 45s after EAGAIN; send space never released.
+exit: 3

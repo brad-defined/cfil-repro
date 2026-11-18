@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF0000000000000000000101 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0000000000000000000201 /* main.swift */; };
+		CF0000000000000000000102 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0000000000000000000202 /* main.swift */; };
+		CF0000000000000000000103 /* FilterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0000000000000000000203 /* FilterDataProvider.swift */; };
+		CF0000000000000000000104 /* filter.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = CF0000000000000000000209 /* filter.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CF0000000000000000000601 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF0000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF0000000000000000000502;
+			remoteInfo = CFILReproFilter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CF0000000000000000000404 /* Embed System Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				CF0000000000000000000104 /* filter.systemextension in Embed System Extensions */,
+			);
+			name = "Embed System Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CF0000000000000000000201 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		CF0000000000000000000202 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		CF0000000000000000000203 /* FilterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataProvider.swift; sourceTree = "<group>"; };
+		CF0000000000000000000204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF0000000000000000000205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF0000000000000000000206 /* CFILRepro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CFILRepro.entitlements; sourceTree = "<group>"; };
+		CF000000000000000000020A /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
+		CF0000000000000000000207 /* CFILReproFilter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CFILReproFilter.entitlements; sourceTree = "<group>"; };
+		CF0000000000000000000208 /* CFILRepro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFILRepro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF0000000000000000000209 /* filter.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = filter.systemextension; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF0000000000000000000402 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF0000000000000000000406 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CF0000000000000000000301 = {
+			isa = PBXGroup;
+			children = (
+				CF000000000000000000020A /* Signing.xcconfig */,
+				CF0000000000000000000302 /* app */,
+				CF0000000000000000000303 /* ext */,
+				CF0000000000000000000304 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF0000000000000000000302 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				CF0000000000000000000201 /* main.swift */,
+				CF0000000000000000000204 /* Info.plist */,
+				CF0000000000000000000206 /* CFILRepro.entitlements */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		CF0000000000000000000303 /* ext */ = {
+			isa = PBXGroup;
+			children = (
+				CF0000000000000000000203 /* FilterDataProvider.swift */,
+				CF0000000000000000000202 /* main.swift */,
+				CF0000000000000000000205 /* Info.plist */,
+				CF0000000000000000000207 /* CFILReproFilter.entitlements */,
+			);
+			path = ext;
+			sourceTree = "<group>";
+		};
+		CF0000000000000000000304 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF0000000000000000000208 /* CFILRepro.app */,
+				CF0000000000000000000209 /* filter.systemextension */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF0000000000000000000501 /* CFILRepro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF0000000000000000000802 /* Build configuration list for PBXNativeTarget "CFILRepro" */;
+			buildPhases = (
+				CF0000000000000000000401 /* Sources */,
+				CF0000000000000000000402 /* Frameworks */,
+				CF0000000000000000000404 /* Embed System Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF0000000000000000000602 /* PBXTargetDependency */,
+			);
+			name = CFILRepro;
+			productName = CFILRepro;
+			productReference = CF0000000000000000000208 /* CFILRepro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CF0000000000000000000502 /* CFILReproFilter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF0000000000000000000803 /* Build configuration list for PBXNativeTarget "CFILReproFilter" */;
+			buildPhases = (
+				CF0000000000000000000405 /* Sources */,
+				CF0000000000000000000406 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CFILReproFilter;
+			productName = CFILReproFilter;
+			productReference = CF0000000000000000000209 /* filter.systemextension */;
+			productType = "com.apple.product-type.system-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF0000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = CF0000000000000000000801 /* Build configuration list for PBXProject "CFILRepro" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF0000000000000000000301;
+			productRefGroup = CF0000000000000000000304 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF0000000000000000000501 /* CFILRepro */,
+				CF0000000000000000000502 /* CFILReproFilter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF0000000000000000000401 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF0000000000000000000101 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF0000000000000000000405 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF0000000000000000000102 /* main.swift in Sources */,
+				CF0000000000000000000103 /* FilterDataProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF0000000000000000000602 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF0000000000000000000502 /* CFILReproFilter */;
+			targetProxy = CF0000000000000000000601 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CF0000000000000000000701 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF000000000000000000020A /* Signing.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CF0000000000000000000702 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF000000000000000000020A /* Signing.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		CF0000000000000000000703 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = app/CFILRepro.entitlements;
+				INFOPLIST_FILE = app/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_PREFIX).cfilrepro";
+				PRODUCT_NAME = CFILRepro;
+			};
+			name = Debug;
+		};
+		CF0000000000000000000704 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = app/CFILRepro.entitlements;
+				INFOPLIST_FILE = app/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_PREFIX).cfilrepro";
+				PRODUCT_NAME = CFILRepro;
+			};
+			name = Release;
+		};
+		CF0000000000000000000705 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ext/CFILReproFilter.entitlements;
+				INFOPLIST_FILE = ext/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_PREFIX).cfilrepro.filter";
+				PRODUCT_MODULE_NAME = CFILReproFilter;
+				PRODUCT_NAME = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CF0000000000000000000706 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ext/CFILReproFilter.entitlements;
+				INFOPLIST_FILE = ext/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_PREFIX).cfilrepro.filter";
+				PRODUCT_MODULE_NAME = CFILReproFilter;
+				PRODUCT_NAME = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF0000000000000000000801 /* Build configuration list for PBXProject "CFILRepro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF0000000000000000000701 /* Debug */,
+				CF0000000000000000000702 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF0000000000000000000802 /* Build configuration list for PBXNativeTarget "CFILRepro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF0000000000000000000703 /* Debug */,
+				CF0000000000000000000704 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF0000000000000000000803 /* Build configuration list for PBXNativeTarget "CFILReproFilter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF0000000000000000000705 /* Debug */,
+				CF0000000000000000000706 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF0000000000000000000001 /* Project object */;
+}

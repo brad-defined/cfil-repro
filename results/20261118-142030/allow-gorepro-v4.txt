@@ -1,0 +1,7 @@
+14:20:30.939 go1.27.4; -net udp4, local 0.0.0.0:49268 -> held 192.0.2.1:4242
+14:20:32.191 write #5 parked (EAGAIN); watching the socket
+14:20:32.192 write #5 parked 1s; poll writable=false SO_NWRITE=0
+14:20:33.063 write #5 completed after 2.077s
+
+*** RECOVERED: write #5 stalled 2.077s, then completed. The kernel delivered EVFILT_WRITE.
+exit: 0

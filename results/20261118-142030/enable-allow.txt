@@ -1,0 +1,1 @@
+filter enabled=true config=["verdict": "allow", "holdMs": 2000, "port": "4242"]

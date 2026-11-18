@@ -1,0 +1,1 @@
+enabled=true config=["port": 4242, "verdict": drop, "holdMs": 2000]

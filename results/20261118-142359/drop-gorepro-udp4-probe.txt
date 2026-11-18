@@ -1,0 +1,48 @@
+14:24:01.589 go1.27.4; -net udp4, local 0.0.0.0:61394 -> held 192.0.2.1:4242, -probe-every 5s
+14:24:02.841 write #5 parked (EAGAIN); watching the socket
+14:24:02.843   probe sendto on same fd (unfiltered dst) -> err=resource temporarily unavailable
+14:24:02.844 write #5 parked 1s; poll writable=false SO_NWRITE=0
+14:24:08.091   probe sendto on same fd (unfiltered dst) -> err=resource temporarily unavailable
+14:24:08.092 write #5 parked 6s; poll writable=false SO_NWRITE=0
+14:24:13.093   probe sendto on same fd (unfiltered dst) -> err=resource temporarily unavailable
+14:24:13.094 write #5 parked 11s; poll writable=false SO_NWRITE=0
+14:24:18.093   probe sendto on same fd (unfiltered dst) -> err=resource temporarily unavailable
+14:24:18.095 write #5 parked 16s; poll writable=false SO_NWRITE=0
+14:24:23.092 socket polls writable after 21.456s parked; probe sendto on same fd -> err=<nil>
+14:24:23.092 probe listener received "probe"
+14:24:23.344 write #5 parked 22s; poll writable=true SO_NWRITE=0
+
+*** REPRODUCED: WriteToUDPAddrPort parked 24.458s; the socket has polled writable for 3.002s.
+The kernel never delivered EVFILT_WRITE after EAGAIN (lost wakeup).
+
+goroutine profile: total 3
+1 @ 0x10289d62c 0x1028da254 0x1029419b4 0x102941660 0x10293eec4 0x102950364 0x102950104 0x1028a6c30 0x1028e1a34
+#	0x1029419b3	runtime/pprof.writeRuntimeProfile+0xb3	/usr/local/go/src/runtime/pprof/pprof.go:848
+#	0x10294165f	runtime/pprof.writeGoroutine+0x4f	/usr/local/go/src/runtime/pprof/pprof.go:781
+#	0x10293eec3	runtime/pprof.(*Profile).WriteTo+0x143	/usr/local/go/src/runtime/pprof/pprof.go:405
+#	0x102950363	main.done+0xe3				/Users/bhiggins/Work/cfil-repro/client/gorepro/main.go:181
+#	0x102950103	main.main+0xe63				/Users/bhiggins/Work/cfil-repro/client/gorepro/main.go:165
+#	0x1028a6c2f	runtime.main+0x37f			/usr/local/go/src/runtime/proc.go:302
+
+1 @ 0x1028db408 0x1028a0b00 0x1028da6c0 0x102901508 0x10290206c 0x10290205d 0x102922458 0x102928b1c 0x1029281cc 0x102950b18 0x102950af1 0x1028e1a34
+#	0x1028da6bf	internal/poll.runtime_pollWait+0x9f		/usr/local/go/src/runtime/netpoll.go:351
+#	0x102901507	internal/poll.(*pollDesc).wait+0x27		/usr/local/go/src/internal/poll/fd_poll_runtime.go:84
+#	0x10290206b	internal/poll.(*pollDesc).waitRead+0x1bb	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+#	0x10290205c	internal/poll.(*FD).ReadFromInet4+0x1ac		/usr/local/go/src/internal/poll/fd_unix.go:246
+#	0x102922457	net.(*netFD).readFromInet4+0x27			/usr/local/go/src/net/fd_posix.go:79
+#	0x102928b1b	net.(*UDPConn).readFrom+0x12b			/usr/local/go/src/net/udpsock_posix.go:52
+#	0x1029281cb	net.(*UDPConn).readFromUDP+0x2b			/usr/local/go/src/net/udpsock.go:146
+#	0x102950b17	net.(*UDPConn).ReadFromUDP+0xa7			/usr/local/go/src/net/udpsock.go:138
+#	0x102950af0	main.main.func1+0x80				/Users/bhiggins/Work/cfil-repro/client/gorepro/main.go:57
+
+1 @ 0x1028db408 0x1028a0b00 0x1028da6c0 0x102901508 0x102902948 0x102902939 0x102922718 0x102928de0 0x102928334 0x1029508fc 0x1028e1a34
+#	0x1028da6bf	internal/poll.runtime_pollWait+0x9f		/usr/local/go/src/runtime/netpoll.go:351
+#	0x102901507	internal/poll.(*pollDesc).wait+0x27		/usr/local/go/src/internal/poll/fd_poll_runtime.go:84
+#	0x102902947	internal/poll.(*pollDesc).waitWrite+0x1c7	/usr/local/go/src/internal/poll/fd_poll_runtime.go:93
+#	0x102902938	internal/poll.(*FD).WriteToInet4+0x1b8		/usr/local/go/src/internal/poll/fd_unix.go:457
+#	0x102922717	net.(*netFD).writeToInet4+0x27			/usr/local/go/src/net/fd_posix.go:121
+#	0x102928ddf	net.(*UDPConn).writeToAddrPort+0x1df		/usr/local/go/src/net/udpsock_posix.go:153
+#	0x102928333	net.(*UDPConn).WriteToUDPAddrPort+0x43		/usr/local/go/src/net/udpsock.go:224
+#	0x1029508fb	main.main.func2+0x16b				/Users/bhiggins/Work/cfil-repro/client/gorepro/main.go:75
+
+exit: 1

@@ -1,0 +1,28 @@
+[  0.000] registered EVFILT_WRITE|EV_CLEAR; initial edge=1 space=9216
+[  0.007] sendto #5 -> EAGAIN; waiting for EVFILT_WRITE
+[  1.010] no edge after 1.0s; poll writable=0 SO_NWRITE=0
+[  2.013] no edge after 2.0s; poll writable=0 SO_NWRITE=0
+[  3.015] no edge after 3.0s; poll writable=0 SO_NWRITE=0
+[  4.017] no edge after 4.0s; poll writable=0 SO_NWRITE=0
+[  5.019] no edge after 5.0s; poll writable=0 SO_NWRITE=0
+[  5.020]   probe sendto 127.0.0.1:9 (not filtered) -> Resource temporarily unavailable
+[  6.022] no edge after 6.0s; poll writable=0 SO_NWRITE=0
+[  7.024] no edge after 7.0s; poll writable=0 SO_NWRITE=0
+[  8.026] no edge after 8.0s; poll writable=0 SO_NWRITE=0
+[  9.029] no edge after 9.0s; poll writable=0 SO_NWRITE=0
+[ 10.031] no edge after 10.0s; poll writable=0 SO_NWRITE=0
+[ 10.032]   probe sendto 127.0.0.1:9 (not filtered) -> Resource temporarily unavailable
+[ 11.034] no edge after 11.0s; poll writable=0 SO_NWRITE=0
+[ 12.038] no edge after 12.0s; poll writable=0 SO_NWRITE=0
+[ 13.043] no edge after 13.0s; poll writable=0 SO_NWRITE=0
+[ 14.049] no edge after 14.0s; poll writable=0 SO_NWRITE=0
+[ 15.051] no edge after 15.0s; poll writable=0 SO_NWRITE=0
+[ 15.052]   probe sendto 127.0.0.1:9 (not filtered) -> Resource temporarily unavailable
+[ 16.054] no edge after 16.0s; poll writable=1 SO_NWRITE=0
+[ 17.057] no edge after 17.0s; poll writable=1 SO_NWRITE=0
+[ 18.061] no edge after 18.1s; poll writable=1 SO_NWRITE=0
+[ 19.064] no edge after 19.1s; poll writable=1 SO_NWRITE=0
+[ 19.065] direct sendto now -> ok
+
+*** REPRODUCED: socket writable for 3.0s after EAGAIN, but EVFILT_WRITE (EV_CLEAR) never fired.
+exit: 1
